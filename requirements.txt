@@ -1,0 +1,2 @@
+python-i18n[YAML]
+python-i18n

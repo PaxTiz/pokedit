@@ -1,0 +1,14 @@
+en:
+  DatabaseError: Could not connect to database
+  OptionError: "Error : unknown option"
+  usage:
+    title:  This program control a storage box system of pokemons and can show you against which type your team is powerful
+    add:  Add a pokemon to the box storage
+    remove:  Remove a pokemon from the box storage
+    listAvaible:  List all avaible pokemons
+    listTeam:  List actual team
+    setTeam:  Set the pokemon at given position
+  parser:
+    add:  was added to database
+    remove:  was delete from database
+    set: Team is update

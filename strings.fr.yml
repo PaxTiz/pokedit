@@ -1,0 +1,14 @@
+fr:
+  DatabaseError: Impossible de se connecter à la base de données
+  OptionError: "Erreur : option inconnue"
+  usage:
+    title:  Ce programme controle un système de boite de stockage de Pokémons et peut vous montrer contre quels types votre équipe est puissante
+    add:  Ajoute un Pokémon à la boite de stockage
+    remove:  Enlève un Pokémon de la boite de stockage
+    listAvaible:  Liste tous les Pokémons disponibles
+    listTeam:  Liste l'équipe actuelle
+    setTeam:  Modifie le Pokémon à la position donnée
+  parser:
+    add:  a été ajouté dans la base de données
+    remove:  a été supprimé de la base de données
+    set: L'équipe a été mise à jour
