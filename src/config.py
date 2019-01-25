@@ -1,5 +1,3 @@
-import sqlite3
-import os
 import locale
 import i18n
 
@@ -11,11 +9,23 @@ i18n.load_path.append("/usr/share/pokedit/")
 i18n.set('locale', loc[0])
 i18n.set('fallback', 'en')
 
-try:
-    u = os.path.expanduser("~")
-    path = u + "/.config/pokedit/database.db"
-    connexion = sqlite3.connect(path)
-    cursor = connexion.cursor()
-except Exception as e:
-    print(i18n.t("strings.DatabaseError"))
-    raise e
+TYPES = {
+    "acier": "steel",
+    "combat": "fight",
+    "dragon": "dragon",
+    "eau": "water",
+    "électrik": "electrik",
+    "fée": "fairy",
+    "feu": "fire",
+    "glace": "ice",
+    "insecte": "bug",
+    "normal": "normal",
+    "plante": "grass",
+    "poison": "poison",
+    "psy": "psychic",
+    "roche": "rock",
+    "sol": "ground",
+    "spectre": "ghost",
+    "ténèbres": "dark",
+    "vol": "flying"
+}
