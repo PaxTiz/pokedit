@@ -39,12 +39,59 @@ class Database():
         """)
 
     def create_table_pokedex(self):
-        print("Create pokedex table")
-        # TODO : Create pokedex table
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS pokedex (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name_fr VARCHAR(255) NOT NULL,
+                name_en VARCHAR(255) NOT NULL,
+                generation INTEGER NOT NULL
+            )
+        """)
+
+    def create_table_natures(self):
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS natures(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,                               
+                name_fr VARCHAR(255) NOT NULL,
+                name_en VARCHAR(255) NOT NULL
+            )
+        """)
+
+    def create_table_nat_pokemon(self):
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS nat_poke (
+                id_poke INTEGER NOT NULL,
+                id_nat INTEGER NOT NULL,
+                FOREIGN KEY(id_poke) REFERENCES pokedex(id),
+                FOREIGN KEY(id_nat) REFERENCES natures(id)
+            )
+        """)
 
     def insert_datas(self):
         self.cursor.execute("""
             INSERT INTO team(poke1, poke2, poke3, poke4, poke5, poke6) VALUES (" ", " ", " ", " ", " ", " ")
+        """)
+
+        self.cursor.execute("""
+            INSERT INTO natures(name_fr, name_en) VALUES
+                ("acier", "steel"),
+                ("combat", "fight"),
+                ("dragon", "dragon"),
+                ("eau", "water"),
+                ("électrik", "electrik"),
+                ("fée", "fairy"),
+                ("feu", "fire"),
+                ("glace", "ice"),
+                ("insecte", "bug"),
+                ("normal", "normal"),
+                ("plante", "grass"),
+                ("poison", "poison"),
+                ("psy", "psychic"),
+                ("roche", "rock"),
+                ("sol", "ground"),
+                ("spectre", "ghost"),
+                ("ténèbres", "dark"),
+                ("vol", "flying")
         """)
 
     def connect(self, way):
@@ -68,5 +115,9 @@ class Database():
         self.create_table_pokemons()
         self.create_table_team()
         self.create_table_attacks()
+        self.create_table_natures()
+        self.create_table_nat_pokemon()
+
+        self.insert_datas()
 
         self.connexion.commit()
